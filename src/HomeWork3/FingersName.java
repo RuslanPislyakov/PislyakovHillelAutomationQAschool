@@ -1,3 +1,5 @@
+package HomeWork3;
+
 import java.util.Scanner;
 
 public class FingersName {
