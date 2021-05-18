@@ -25,11 +25,11 @@ double бонус за сумму продаж)
  */
 public class AgentSalary {
     public static void main(String[] args) {
-        int workedHours = 150; // Отработанные часы
+        int workedHours = 170; // Отработанные часы
         double reitPerHour = 10; // Рейт, долларов в час
         int yearsOfWorkExpirience = 3; // Стаж работы
-        int dealsAmount = 8; // Количество продаж
-        double salesAmount = 16000; // Сумма продаж
+        int dealsAmount = 21; // Количество продаж
+        double salesAmount = 14000; // Сумма продаж
 
         double baseSalary;
 
