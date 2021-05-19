@@ -1,5 +1,7 @@
 package HomeWork6.Salary;
 
+import java.sql.SQLOutput;
+
 /*
 1 - Расчёт зарплаты агента по продажам
 Расчёт зарплаты нужно разбить на несколько методов:
@@ -42,6 +44,5 @@ public class SalaryCalculation {
         System.out.println("Salary for employee on probation: " + salesAgentSalaryOnProbation.getSalary());
 
         System.out.println("Salary for employee: " + salesAgentSalary.getSalary());
-
     }
 }

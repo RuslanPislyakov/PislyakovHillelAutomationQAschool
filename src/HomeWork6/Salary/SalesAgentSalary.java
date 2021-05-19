@@ -1,22 +1,17 @@
 package HomeWork6.Salary;
 
 public class SalesAgentSalary {
-//TODO Почему если переменные ниже сделать приватными, то их по сути можно удалить
-    int workedHours; // Отработанные часы
-    double reitPerHour; // Рейт, долларов в час
-    int yearsOfWorkExpirience; // Стаж работы
-    int dealsAmount; // Количество продаж
-    double salesAmount; // Сумма продаж
+    private int workedHours; // Отработанные часы
+    private double reitPerHour; // Рейт, долларов в час
+    private int yearsOfWorkExpirience; // Стаж работы
+    private int dealsAmount; // Количество продаж
+    private double salesAmount; // Сумма продаж
 
     double salary; // Вычисляемая ЗП
 
     public SalesAgentSalary(int workedHours, double reitPerHour) {
         this.workedHours = workedHours;
         this.reitPerHour = reitPerHour;
-
-        if (workedHours < 160) {
-            salary = workedHours * reitPerHour;
-        } else salary = 160 * reitPerHour + overtimePayment(workedHours, reitPerHour);
     }
 
     public SalesAgentSalary(int workedHours, double reitPerHour, int yearsOfWorkExpirience, int dealsAmount, double salesAmount) {
@@ -25,15 +20,7 @@ public class SalesAgentSalary {
         this.yearsOfWorkExpirience = yearsOfWorkExpirience;
         this.dealsAmount = dealsAmount;
         this.salesAmount = salesAmount;
-
-        if (workedHours < 160) {
-            salary = workedHours * reitPerHour * workExperienceCoefficient(yearsOfWorkExpirience) + overtimePayment(workedHours, reitPerHour)
-                    + amountOfDealsBonus(dealsAmount) + salesAmountBonus(salesAmount);
-        } else
-            salary = 160 * reitPerHour * workExperienceCoefficient(yearsOfWorkExpirience) + overtimePayment(workedHours, reitPerHour)
-                    + amountOfDealsBonus(dealsAmount) + salesAmountBonus(salesAmount);
     }
-
 
 
     public double overtimePayment(int workedHours, double reitPerHour) {
@@ -51,10 +38,11 @@ public class SalesAgentSalary {
         return coefficient;
     }
 
-    public double amountOfDealsBonus(int dealsAmount) {
+    public double amountOfDealsBonus(int dealsAmount, int yearsOfWorkExpirience) {
         double bonus = 0;
         if (dealsAmount > 20) bonus = 250.0;
         if (dealsAmount < 10) bonus = -150.0;
+        if (yearsOfWorkExpirience == 0) bonus = 0;
         return bonus;
     }
 
@@ -65,6 +53,12 @@ public class SalesAgentSalary {
     }
 
     public double getSalary() {
+        if (workedHours < 160) {
+            salary = workedHours * reitPerHour * workExperienceCoefficient(yearsOfWorkExpirience) + overtimePayment(workedHours, reitPerHour)
+                    + amountOfDealsBonus(dealsAmount, yearsOfWorkExpirience) + salesAmountBonus(salesAmount);
+        } else
+            salary = 160 * reitPerHour * workExperienceCoefficient(yearsOfWorkExpirience) + overtimePayment(workedHours, reitPerHour)
+                    + amountOfDealsBonus(dealsAmount, yearsOfWorkExpirience) + salesAmountBonus(salesAmount);
         return salary;
     }
 }
