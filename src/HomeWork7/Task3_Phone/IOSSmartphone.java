@@ -32,16 +32,16 @@ public class IOSSmartphone extends Phone {
 
     @Override
     public void chargerInterface() {
-        System.out.println("Lightning");
+        setChargerType("Lightening");
     }
 
     @Override
-    void operationalSystem() {
-        System.out.println("iOS");
+    public void operationalSystem() {
+        setOperationSystem("iOS");
     }
 
     @Override
     void applicationsStore() {
-        System.out.println("AppStore");
+        setApplicationStore("App Store");
     }
 }

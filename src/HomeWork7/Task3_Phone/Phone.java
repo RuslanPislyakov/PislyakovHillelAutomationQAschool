@@ -14,8 +14,6 @@ iOSSmartphone and AndroidSmartphone - они реализуют абстракт
  */
 public abstract class Phone {
 
-
-
     public void numberDialing() {
         System.out.println("Phone is dialing the number");
     }
